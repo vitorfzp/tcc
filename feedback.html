@@ -3,70 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuário - Autonowe</title>
+    <title>Enviar Feedback - Autonowe</title>
     <link rel="icon" type="image/png" href="img/logoc.png">
-    <link rel="stylesheet" href="style/cadastro.css">
-    <style>
-        
-        .container { max-width: 600px; } 
-        .content-wrapper { flex-direction: column; } 
-        .logo-area { display: none; } 
-        .error-message { color: red; font-weight: bold; margin-top: 10px; text-align: center; }
-        .success-message { color: green; font-weight: bold; margin-top: 10px; text-align: center; }
-    </style>
+    <link rel="stylesheet" href="style/feed.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Cadastro de Novo Usuário</h1>
-
-        <?php if (isset($_GET['error'])): ?>
-            <p class="error-message"><?= htmlspecialchars($_GET['error']) ?></p>
-        <?php endif; ?>
-        <?php if (isset($_GET['success'])): ?>
-            <p class="success-message"><?= htmlspecialchars($_GET['success']) ?></p>
-        <?php endif; ?>
-
-        <div class="content-wrapper">
-            <form action="php/usuario/register_action.php" method="post">
-                <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome" required>
-
-                <label for="cpf">CPF</label>
-                <input type="text" id="cpf" name="cpf" required placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" required minlength="6">
-                <label for="confirma_senha">Confirmar Senha</label>
-                <input type="password" id="confirma_senha" name="confirma_senha" required>
-
-                <button type="submit">Cadastrar</button>
+    <header>
+        <nav class="navbar">
+            <a class="logo" href="index.html"><img src="img/Logo.jpeg" alt="Logo"></a>
+            <h1 id="h1">Autonowe</h1>
+            <ul class="menu-links">
+                <li><a href="index.html"><strong>HOME</strong></a></li>
+                <li><a href="local.html"><strong>SERVIÇOS</strong></a></li>
+                <li><a href="resultado.html"><strong>RESULTADOS</strong></a></li>
+                <li><a href="estaticas.html"><strong>ESTATÍSTICAS</strong></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="feedback-form">
+            <h2><strong>Deixe seu Feedback</strong></h2>
+            <div id="message-area"></div>
+            <form id="formFeedback" action="php/submit_feedback.php" method="POST">
+                <label for="nome_prestador"><strong>Nome do Prestador:</strong></label>
+                <input type="text" id="nome_prestador" name="nome_prestador" required>
+                <label for="profissao"><strong>Profissão:</strong></label>
+                <select id="profissao" name="profissao">
+                    <option value="Limpeza Geral">Limpeza Geral</option>
+                    <option value="Pedreiro">Pedreiro</option>
+                    <option value="Jardineiro">Jardineiro</option>
+                    <option value="Segurança">Segurança</option>
+                    <option value="Animador de Festa">Animador de Festa</option>
+                    <option value="Barman">Barman</option>
+                    <option value="Cabeleireiro">Cabeleireiro</option>
+                    <option value="Transporte de Aplicativo">Transporte de Aplicativo</option>
+                </select>
+                <label for="nota"><strong>Nota:</strong></label>
+                <select id="nota" name="nota" required>
+                    <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                    <option value="4">⭐⭐⭐⭐ (4)</option>
+                    <option value="3">⭐⭐⭐ (3)</option>
+                    <option value="2">⭐⭐ (2)</option>
+                    <option value="1">⭐ (1)</option>
+                </select>
+                <label for="comentario"><strong>Comentário:</strong></label>
+                <textarea id="comentario" name="comentario" required></textarea>
+                <button type="submit"><strong>Enviar Feedback</strong></button>
             </form>
-        </div>
-         <p style="text-align: center; margin-top: 20px;">
-            Já tem uma conta? <a href="login.html" style="color: #0a2540; font-weight: bold;">Faça Login</a>
-        </p>
-    </div>
-
-    <a href="index.html" class="back-button">←</a>
-
+        </section>
+    </main>
     <script>
-        
-        const form = document.querySelector('form');
-        form.addEventListener('submit', function(event) {
-            const senha = document.getElementById('senha').value;
-            const confirmaSenha = document.getElementById('confirma_senha').value;
-            if (senha !== confirmaSenha) {
-                alert('As senhas não coincidem!');
-                event.preventDefault(); 
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const messageArea = document.getElementById('message-area');
+            const error = params.get('error');
+            const success = params.get('success');
+            if (error) {
+                messageArea.innerHTML = `<p style="color: red; background: white; padding: 10px; border-radius: 5px;">${decodeURIComponent(error)}</p>`;
+            } else if (success) {
+                messageArea.innerHTML = `<p style="color: green; background: white; padding: 10px; border-radius: 5px;">${decodeURIComponent(success)}</p>`;
             }
         });
     </script>
 </body>
 </html>
-
-    <a href="index.html" class="back-button">←</a>
-</body>
-</html>
-
