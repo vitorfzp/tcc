@@ -1,0 +1,150 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background-color: #081B2C;
+  background-image: url('../img/Fundo2.jpg');
+  background-repeat: no-repeat;
+  background-position: center -100px; /* imagem mais para cima */
+  background-size: cover;
+
+  color: #ffffff;
+}
+
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.541);       
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;        
+}
+
+header .logo img {
+  max-width: 80px;
+  border-radius: 50%;
+}
+
+
+#h1,#h2 {
+  font-family: 'Snell Roundhand', cursive;
+  font-size: 3.5rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ffcc00, #ff9900);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+
+#h2::after {
+  content: "";
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #ffcc00, #ff9900);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+
+.menu-links {
+  display: flex;
+  align-items: center; /* Alinha os itens verticalmente */
+  list-style: none;
+  gap: 35px;
+}
+
+.menu-links a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: inherit; /* Herdando a mesma fonte do botão */
+  padding: 12px 15px;
+  border: 2px solid #ffcc00;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   
+}
+
+
+
+.menu-links a:hover {
+  background: #ff9900;
+  color: #0f222d;
+  transform: scale(1.1);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px; 
+  padding: 20px;
+}
+
+
+.feedback-results {
+  background-color: #0f222d;        
+  padding: 20px;
+  border-radius: 50px;
+  width: 100%;
+  max-width: 600px;
+  border: 4px solid #000000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+#btnClear {
+  width: 100%;
+  background: #ffcc00;
+  color: #000000;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-bottom: 15px; 
+}
+
+#btnClear:hover {
+  background: #ffaa00;
+}
+#feedbackResults {
+  list-style: none;
+  margin-top: 10px;
+  padding: 0;
+}
+
+#feedbackResults li {
+  background: #ffaa00;
+  color: #000000;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  position: relative;
+}

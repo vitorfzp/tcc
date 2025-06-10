@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonowe</title>
+  <link  rel="icon" type="image/png" href="img/logoc.png">
+  <script src="script/estatistica.js" defer></script>
+  <link rel="stylesheet" href="style/estatisticas.css">
+  <!-- Inclusão da biblioteca Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html"><img src="img/Logo.jpeg" alt="Logo"></a>
+    <br>
+    <hr id="hr">
+    <ul class="menu-links">
+        <a href="index.html"><strong>HOME</strong></a></li>
+        <a href="feedback.html"><strong>FEEDBACK</strong></a></li>
+        <a href="local.html"><strong>SERVIÇOS</strong></a></li>
+        <a href="resultado.html"><strong>RESULTADOS</strong></a></li>
+    </ul>
+    <hr id="hr">
+  </header>
+  <main>
+    <div class="container">
+      <h2>Feedbacks Prestadores</h2>
+      <div class="filters">
+        <!-- Filtro por Estabelecimento -->
+        <div class="filter">
+          <label for="estabelecimentoFilter">Filtrar por Prestador:</label>
+          <select id="estabelecimentoFilter">
+            <option value="all">Todos os Prestadores</option>
+            <!-- As opções serão adicionadas dinamicamente -->
+          </select>
+        </div>
+        <br>
+        <!-- Filtro por Tipo de Feedback -->
+        <div class="filter">
+          <label for="feedbackTypeFilter">Filtrar por Profissão:</label>
+          <select id="feedbackTypeFilter">
+            <option value="all">Todas as Profissões</option>
+            <!-- As opções serão adicionadas dinamicamente -->
+          </select>
+        </div>
+      </div>
+      <canvas id="feedbackChart" width="500" height="165"></canvas>
+    </div>
+  </main>
+</body>
+</html>
