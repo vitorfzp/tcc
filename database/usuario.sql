@@ -25,3 +25,15 @@ CREATE TABLE feedbacks (
     data_feedback TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE
 );
+
+
+
+SELECT * FROM prestadores;
+DELETE FROM prestadores WHERE cpf= "";
+
+
+SELECT * FROM usuario;
+DELETE FROM usuario WHERE cpf= "";
+
+SELECT * FROM feedbacks;
+DELETE FROM usuario WHERE id= "";
