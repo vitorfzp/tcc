@@ -6,6 +6,7 @@
   <title>Autonowe - Início</title>
   <link rel="icon" type="image/png" href="img/logoc.png">
   <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/custom.css">
 </head>
 <body>
   <aside class="sidebar">
@@ -56,9 +57,46 @@
         <li>Atendimento rápido e direto</li>
         <li>Profissionais avaliados pela comunidade</li>
         <li>Interface intuitiva</li>
+        <li><a href="register.html" style="font-weight: bold; color: #1e40af;">É um usuário? Cadastre-se aqui!</a></li>
         <li><a href="cadastro.html" style="font-weight: bold; color: #1e40af;">É um prestador? Cadastre-se aqui!</a></li>
       </ul>
     </section>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const successMessage = params.get('success');
+
+        if (successMessage) {
+            // Cria a div da notificação
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.textContent = decodeURIComponent(successMessage);
+            
+            // Adiciona a notificação ao body do documento
+            document.body.appendChild(toast);
+
+            // Adiciona a classe 'show' para iniciar a animação de entrada
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100); // Pequeno delay para garantir que a transição funcione
+
+            // Remove a notificação após 5 segundos
+            setTimeout(() => {
+                toast.classList.remove('show');
+                // Espera a animação de saída terminar antes de remover o elemento
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 500);
+            }, 5000);
+
+            // Limpa a URL para não mostrar a mensagem novamente se a página for recarregada
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    });
+  </script>
+  
+  <script src="script/session_handler.js" defer></script>
 </body>
 </html>
