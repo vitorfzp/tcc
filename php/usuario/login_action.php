@@ -22,11 +22,11 @@ try {
 
     if ($user && password_verify($senha, $user['senha'])) {
         $_SESSION['user_id'] = $user['id'];
-        $_SESSION['user_name'] = $user['nome'];
+        $_SESSION['user_name'] = $user['nome']; 
 
         // **AQUI ESTÁ A MUDANÇA PRINCIPAL**
         // Agora, redirecionamos com um parâmetro de sucesso na URL
-        header('Location: ../../index.html?success=Login realizado com sucesso!');
+        header('Location: ../../index.php?success=Login realizado com sucesso!');
         exit;
     } else {
         header('Location: ../../login_form.html?error=Email ou senha inválidos.');
