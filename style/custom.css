@@ -376,12 +376,13 @@
         flex-direction: column;
     }
 }
+
 /* --- Estilos para Notificação de Login (Toast) --- */
 .toast-notification {
     position: fixed;
     top: 25px;
     right: 25px;
-    background-color: #22c55e; /* Verde sucesso */
+    background-color: #3b82f6; /* Verde sucesso */
     color: white;
     padding: 16px 24px;
     border-radius: 8px;
@@ -487,3 +488,524 @@
     background-color: #cbd5e1;
     transform: translateY(-2px);
 }
+
+/* --- Estilo para exibição do usuário logado --- */
+.main-content {
+    position: relative; /* Essencial para posicionar a caixa de informações dentro dele */
+}
+
+.user-info-display {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background-color: #ffffff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: right;
+    font-size: 0.9rem;
+    border: 1px solid #e2e8f0;
+    z-index: 100;
+}
+
+.user-info-display strong {
+    display: block;
+    color: #103352; /* Azul escuro para o nome */
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.user-info-display span {
+    color: #64748b; /* Cinza para o e-mail */
+    font-size: 0.8rem;
+}
+
+
+.hero-section {
+    /* ATUALIZAÇÃO: Trocamos a imagem de fundo pelo gradiente azul escuro */
+    background: linear-gradient(135deg, rgb(16, 51, 82) 0%, rgb(20, 65, 105) 100%);
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+/* O restante do seu CSS para a página inicial continua igual... */
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    color: #e2e8f0; /* Cinza claro para o parágrafo */
+}
+
+.hero-cta-button {
+    background-color: #ffcc00; /* Amarelo da sua logo */
+    color: #103352; /* Azul escuro */
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.hero-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+}
+
+/* Seção de Informações / Como Funciona */
+.info-section {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.info-section h2 {
+    color: #103352;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.step-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e2e8f0;
+    flex: 1;
+    min-width: 280px;
+}
+
+.step-card i {
+    font-size: 2.5rem;
+    color: #3b82f6; /* Azul médio para ícones */
+    margin-bottom: 1rem;
+}
+
+.step-card h3 {
+    color: #103352;
+    margin-bottom: 0.5rem;
+}
+
+.step-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Seção da Galeria de Imagens */
+.gallery-section {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.gallery-section h2 {
+    color: #103352;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-subtitle {
+    color: #64748b;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.03);
+}
+
+/* Seção de Depoimentos */
+.testimonials-section {
+    background-color: #f8fafc;
+    padding: 3rem 1rem;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    color: #103352;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.testimonial-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e2e8f0;
+    max-width: 400px;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: #3b82f6;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card span {
+    font-weight: 600;
+    color: #103352;
+}
+
+/*
+================================================
+--- NOVOS ESTILOS PARA A PÁGINA INICIAL (INDEX) ---
+================================================
+*/
+
+/* Remove o padding padrão para a nova estrutura */
+.main-content#index-main {
+    padding: 0;
+}
+
+/* 1. Estilos da Seção Principal (Hero) */
+.new-hero {
+    background-color: #f8fafc; /* Um fundo quase branco */
+    display: flex;
+    align-items: center;
+    padding: 4rem 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-text h1 {
+    font-size: 3.2rem;
+    color: #103352; /* Azul escuro */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #64748b; /* Cinza */
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: #103352;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #144169;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #103352;
+    border-color: #103352;
+}
+.btn-secondary:hover {
+    background-color: #103352;
+    color: white;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* 2. Estilos da Seção "Como Funciona" */
+.how-it-works {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.how-it-works h2 {
+    font-size: 2.2rem;
+    color: #103352;
+    margin-bottom: 3rem;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.step {
+    flex: 1;
+    min-width: 250px;
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    color: #ffcc00; /* Amarelo da logo */
+    background-color: #103352;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.step h3 {
+    font-size: 1.2rem;
+    color: #103352;
+    margin-bottom: 0.5rem;
+}
+
+.step p {
+    color: #64748b;
+}
+
+/* 3. Estilos da Seção de Serviços em Destaque */
+.featured-services {
+    padding: 4rem 2rem;
+    background-color: #f8fafc;
+}
+
+.featured-services h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #103352;
+    margin-bottom: 3rem;
+}
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.service-card-content {
+    padding: 1.5rem;
+}
+
+.service-card-content h3 {
+    color: #103352;
+    margin-bottom: 0.5rem;
+}
+
+.service-card-content p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.service-card-content a {
+    color: #103352;
+    font-weight: 600;
+    text-decoration: none;
+}
+.service-card-content a:hover {
+    text-decoration: underline;
+}
+
+/* 4. Estilos do Rodapé (Footer) */
+.main-footer {
+    background-color: #103352;
+    color: #e2e8f0;
+    padding: 3rem 2rem 1rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-section a:hover {
+    color: #ffcc00; /* Amarelo da logo */
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+/* --- ESTILOS DA NOVA SEÇÃO "SOBRE NÓS" --- */
+
+.about-us-section {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem 2rem;
+    background-color: #ffffff;
+    flex-wrap: wrap;
+}
+
+.about-us-content {
+    flex: 1.2; /* Dando um pouco mais de espaço para o texto */
+    min-width: 320px;
+}
+
+.section-tagline {
+    color: #3b82f6; /* Azul médio */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.about-us-content h2 {
+    font-size: 2.5rem;
+    color: #103352;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.about-us-content p {
+    color: #64748b;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.our-values {
+    list-style: none;
+    padding: 0;
+}
+
+.our-values li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: #475569;
+}
+
+.our-values i {
+    font-size: 1.2rem;
+    color: #ffcc00; /* Amarelo da logo */
+    margin-top: 5px;
+}
+
+.about-us-image {
+    flex: 1;
+    min-width: 320px;
+}
+
+.about-us-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}       

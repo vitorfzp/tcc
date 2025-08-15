@@ -168,3 +168,26 @@ body {
         padding: 30px;
     }
 }
+
+/* --- ESTILO PARA MOSTRAR/OCULTAR SENHA --- */
+
+.password-wrapper {
+    position: relative; /* Essencial para posicionar o ícone dentro */
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Garante que o input dentro do wrapper tenha espaço para o ícone */
+.auth-form .password-wrapper input {
+    padding-right: 45px; /* Adiciona espaço à direita no campo de texto */
+}
+
+.toggle-password {
+    position: absolute; /* Coloca o ícone sobre o campo de texto */
+    top: 50%;
+    right: 18px; /* Posição da direita para a esquerda */
+    transform: translateY(-50%); /* Alinha verticalmente */
+    cursor: pointer;
+    color: #6b7280; /* Cor do ícone */
+}

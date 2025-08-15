@@ -29,8 +29,12 @@ try {
         "INSERT INTO feedbacks (usuario_id, nome_prestador, profissao, tipo, nota, comentario) VALUES (?, ?, ?, ?, ?, ?)"
     );
     $stmt->execute([$usuario_id, $nome_prestador, $profissao, $tipo, $nota, $comentario]);
-    header('Location: ../resultado.html?success=Feedback enviado com sucesso!');
+
+    // --- CORREÇÃO APLICADA AQUI ---
+    // Alterado de resultado.html para resultado.php
+    header('Location: ../resultado.php?success=Feedback enviado com sucesso!');
     exit;
+
 } catch (PDOException $e) {
     error_log("Erro ao salvar feedback: " . $e->getMessage());
     header('Location: ../feedback.html?error=Ocorreu um erro ao salvar seu feedback.');

@@ -1,4 +1,7 @@
-<?php require_once 'php/auth_guard.php'; ?>
+<?php
+// 1. Simplesmente inclua o novo auth_guard. Ele faz todo o trabalho!
+require_once 'php/auth_guard.php';
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

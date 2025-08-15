@@ -1,43 +1,19 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loginMenuItem = document.querySelector('a[href="login.html"]');
-
-    if (loginMenuItem) {
-        fetch('php/usuario/check_session.php')
-            .then(response => response.json())
-            .then(data => {
-                if (data.loggedIn) {
-                    // Quando o usuário logado clicar, chamamos a função que cria o nosso pop-up
-                    loginMenuItem.addEventListener('click', function (event) {
-                        event.preventDefault();
-                        showCustomLogoutModal(data.userName);
-                    });
-                }
-            })
-            .catch(error => {
-                console.error('Erro ao verificar a sessão:', error);
-            });
-    }
-});
-
 /**
- * Cria e exibe um pop-up (modal) customizado para confirmar o logout.
+ * Cria e exibe o pop-up (modal) customizado para confirmar o logout.
  * @param {string} userName - O nome do usuário logado.
  */
 function showCustomLogoutModal(userName) {
-    // Evita criar múltiplos modais se o usuário clicar várias vezes
+    // Evita criar múltiplos modais
     if (document.querySelector('.logout-modal-overlay')) {
         return;
     }
 
-    // Cria o fundo escurecido (overlay)
     const overlay = document.createElement('div');
     overlay.className = 'logout-modal-overlay';
 
-    // Cria a caixa do modal
     const modal = document.createElement('div');
     modal.className = 'logout-modal';
 
-    // Cria o conteúdo do modal
     modal.innerHTML = `
         <div class="logout-modal-content">
             <h3>Sessão Ativa</h3>
@@ -50,30 +26,59 @@ function showCustomLogoutModal(userName) {
         </div>
     `;
 
-    // Adiciona o overlay e o modal à página
     document.body.appendChild(overlay);
     document.body.appendChild(modal);
     
-    // Força o navegador a aplicar os estilos antes de adicionar a classe 'show' para a animação funcionar
+    // Animação de entrada
     setTimeout(() => {
         overlay.classList.add('show');
         modal.classList.add('show');
     }, 10);
 
-    // Função para fechar o modal
     const closeModal = () => {
         overlay.classList.remove('show');
         modal.classList.remove('show');
         setTimeout(() => {
-            document.body.removeChild(overlay);
-            document.body.removeChild(modal);
-        }, 300); // Espera a transição de fade-out terminar
+            if (document.body.contains(overlay)) {
+                document.body.removeChild(overlay);
+            }
+            if (document.body.contains(modal)) {
+                document.body.removeChild(modal);
+            }
+        }, 300);
     };
 
-    // Adiciona os eventos aos botões
+    // Eventos dos botões e do fundo
     document.getElementById('logout-confirm-btn').addEventListener('click', () => {
         window.location.href = 'php/usuario/logout.php';
     });
     document.getElementById('logout-cancel-btn').addEventListener('click', closeModal);
-    overlay.addEventListener('click', closeModal); // Permite fechar clicando fora do modal
+    overlay.addEventListener('click', closeModal);
 }
+
+
+// --- LÓGICA PRINCIPAL ---
+// Executa somente quando o DOM estiver completamente carregado
+document.addEventListener('DOMContentLoaded', () => {
+    // Procura pelo item de menu de login/logout
+    const loginMenuItem = document.querySelector('.sidebar-menu a[title="Login"]');
+
+    if (loginMenuItem) {
+        // Verifica o status da sessão no servidor
+        fetch('php/usuario/check_session.php')
+            .then(response => response.json())
+            .then(data => {
+                // Se o usuário estiver logado...
+                if (data.loggedIn) {
+                    // ...adiciona o evento de clique que abre o modal de logout.
+                    loginMenuItem.addEventListener('click', function (event) {
+                        event.preventDefault(); // Impede a navegação padrão do link
+                        showCustomLogoutModal(data.userName); // Chama a função do modal
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao verificar a sessão:', error);
+            });
+    }
+});
