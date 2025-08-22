@@ -55,7 +55,7 @@ if (isset($_SESSION['user_id'])) {
             <p>Encontre prestadores de serviço de confiança, avaliados pela nossa comunidade, para resolver qualquer necessidade com qualidade e segurança.</p>
             <div class="hero-buttons">
                 <a href="local.php" class="btn btn-primary">Encontrar um Profissional</a>
-                <a href="cadastro.html" class="btn btn-secondary">Sou um Profissional</a>
+                <a href="cadastro.php" class="btn btn-secondary">Sou um Profissional</a>
             </div>
         </div>
         <div class="hero-image">
@@ -170,5 +170,8 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </footer>
   </main>
+
+  <script src="script/session_handler.js" defer></script>
+  <script src="script/toast_handler.js" defer></script>
 </body>
 </html>

@@ -2,20 +2,21 @@
 require_once 'config.php';
 session_start();
 
-// ... (O restante do código de processamento e upload permanece o mesmo, pois já estava funcional)
-// As melhorias aqui são sutis, como garantir que a sessão seja iniciada.
-
 $nome     = $_POST['nome'] ?? '';
 $cpf      = $_POST['cpf'] ?? '';
 $email    = $_POST['email'] ?? '';
+$profissao = $_POST['profissao'] ?? '';
 $mensagem = $_POST['mensagem'] ?? '';
 $arquivo_nome = null;
 
-if (empty($nome) || empty($cpf) || empty($email)) {
-     die("Erro: Nome, CPF e Email são obrigatórios.");
+// Validação (agora inclui a profissão)
+if (empty($nome) || empty($cpf) || empty($email) || empty($profissao)) {
+     // MUDANÇA AQUI: Em vez de die(), redirecionamos com uma mensagem de erro
+     header('Location: ../../cadastro.php?error=' . urlencode('Erro: Nome, CPF, Email e Profissão são obrigatórios.'));
+     exit;
 }
 
-// Lógica de Upload (sem alterações significativas)
+// Lógica de Upload
 if (!empty($_FILES['arquivo']['name']) && $_FILES['arquivo']['error'] == UPLOAD_ERR_OK) {
     $uploadDir = __DIR__ . '/../uploads/';
     if (!is_dir($uploadDir)) {
@@ -34,20 +35,27 @@ if (!empty($_FILES['arquivo']['name']) && $_FILES['arquivo']['error'] == UPLOAD_
 }
 
 try {
-    $stmt = $pdo->prepare("INSERT INTO prestadores (cpf, nome, email, arquivo, mensagem) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$cpf, $nome, $email, $arquivo_nome, $mensagem]);
+    // Query atualizada para incluir a profissão
+    $stmt = $pdo->prepare("INSERT INTO prestadores (cpf, nome, email, profissao, arquivo, mensagem) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$cpf, $nome, $email, $profissao, $arquivo_nome, $mensagem]);
 } catch (PDOException $e) {
      if ($e->getCode() == 23000) {
-          die("Erro: Este CPF já está cadastrado.");
+          // MUDANÇA AQUI: Redirecionamos com a mensagem de erro
+          header('Location: ../../cadastro.php?error=' . urlencode('Erro: Este CPF já está cadastrado.'));
+          exit;
      } else {
-          die("Ocorreu um erro ao processar seu cadastro.");
+          // MUDANÇA AQUI: Redirecionamos com a mensagem de erro
+          header('Location: ../../cadastro.php?error=' . urlencode('Ocorreu um erro ao processar seu cadastro.'));
+          exit;
      }
 }
 
+// Salva a profissão na sessão para mostrar na confirmação
 $_SESSION['dados_enviados'] = [
     'nome' => $nome,
     'cpf' => $cpf,
     'email' => $email,
+    'profissao' => $profissao,
     'mensagem' => $mensagem,
     'arquivo' => $arquivo_nome
 ];
