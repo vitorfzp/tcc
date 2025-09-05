@@ -9,14 +9,14 @@ require_once 'php/auth_guard.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enviar Feedback - Autonowe</title>
-    <link rel="icon" type="image/png" href="img/logoc.png">
+    <link rel="icon" type="image/png" href="img/LOGO.png">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/custom.css">
 </head>
 <body>
     <aside class="sidebar">
         <div class="sidebar-header">
-            <img src="img/logoc.png" alt="Logo Autonowe" class="logo-icon" />
+            <img src="img/LOGO.png" alt="Logo Autonowe" class="logo-icon" />
             <h2 class="brand-title">AUTONOWE</h2>
         </div>
         <nav class="sidebar-menu">

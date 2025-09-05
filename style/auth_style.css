@@ -191,3 +191,18 @@ body {
     cursor: pointer;
     color: #6b7280; /* Cor do ícone */
 }
+
+.logo-container img {
+    width: 400px; 
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.Imagem-dois{
+    width: 100px; /* Podes definir um tamanho diferente */
+    height: auto;
+    margin-top: 20px; /* Podes adicionar um espaçamento */
+    border-radius: 0; /* Podes remover o arredondamento da borda */
+    border: 3px solid #ffcc00; /* Podes até adicionar uma borda colorida */
+}

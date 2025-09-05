@@ -2,8 +2,3 @@
   Deny from all
 </FilesMatch>
 
-Options -Indexes
-
-
-# LINHA ADICIONADA PARA O ERRO 404
-ErrorDocument 404 /erro.php

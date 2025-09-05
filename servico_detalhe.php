@@ -61,7 +61,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profissionais de <?php echo htmlspecialchars($servico_selecionado); ?> - Autonowe</title>
-    <link rel="icon" type="image/png" href="img/logoc.png">
+    <link rel="icon" type="image/png" href="img/LOGO.png">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/custom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -69,7 +69,7 @@ try {
 <body>
     <aside class="sidebar">
         <div class="sidebar-header">
-            <img src="img/logoc.png" alt="Logo Autonowe" class="logo-icon" />
+            <img src="img/LOGO.png" alt="Logo Autonowe" class="logo-icon" />
             <h2 class="brand-title">AUTONOWE</h2>
         </div>
         <nav class="sidebar-menu">
@@ -158,7 +158,11 @@ try {
     <div id="feedbackModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
+                <br>
+                <br>
                 <h3>Todos os Feedbacks para <?php echo htmlspecialchars($servico_selecionado); ?></h3>
+                <br>
+                
                 <button id="closeModalBtn" class="modal-close-btn">&times;</button>
             </div>
             <div class="modal-body">

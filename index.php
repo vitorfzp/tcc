@@ -1,7 +1,10 @@
 <?php
+// --- INÍCIO DO BLOCO PHP CORRIGIDO ---
 session_start();
-require_once 'php/config.php';
-$user_info = null;
+require_once 'php/config.php'; // Adiciona a conexão com a base de dados
+$user_info = null; // Garante que a variável sempre exista
+
+// Verifica se o utilizador está logado antes de tentar buscar os dados
 if (isset($_SESSION['user_id'])) {
     try {
         $stmt = $pdo->prepare("SELECT nome, email FROM usuario WHERE id = ?");
@@ -9,9 +12,10 @@ if (isset($_SESSION['user_id'])) {
         $user_info = $stmt->fetch();
     } catch (PDOException $e) {
         error_log("Erro ao buscar dados do usuário: " . $e->getMessage());
-        $user_info = null;
+        $user_info = null; // Se der erro, a variável fica nula
     }
 }
+// --- FIM DO BLOCO PHP CORRIGIDO ---
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,7 +23,7 @@ if (isset($_SESSION['user_id'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Autonowe - Conectando Profissionais e Clientes</title>
-  <link rel="icon" type="image/png" href="img/logoc.png">
+  <link rel="icon" type="image/png" href="img/LOGO.png">
   <link rel="stylesheet" href="style/style.css" />
   <link rel="stylesheet" href="style/custom.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -27,7 +31,7 @@ if (isset($_SESSION['user_id'])) {
 <body>
   <aside class="sidebar">
     <div class="sidebar-header">
-      <img src="img/logoc.png" alt="Logo Autonowe" class="logo-icon" />
+      <img src="img/LOGO.png" alt="Logo Autonowe" class="logo-icon" />
       <h2 class="brand-title">AUTONOWE</h2>
     </div>
     <nav class="sidebar-menu">
@@ -141,17 +145,16 @@ if (isset($_SESSION['user_id'])) {
             <div class="footer-section">
                 <h4>Principais Serviços</h4>
                 <ul>
-                    <li><a href="#">Limpeza Geral</a></li>
-                    <li><a href="#">Pedreiro</a></li>
-                    <li><a href="#">Jardineiro</a></li>
-                    <li><a href="#">Segurança</a></li>
+                    <li><a href="local.php">Limpeza Geral</a></li>
+                    <li><a href="local.php">Pedreiro</a></li>
+                    <li><a href="local.php">Jardineiro</a></li>
+                    <li><a href="local.php">Segurança</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Autonowe</h4>
                 <ul>
-                    <li><a href="#">Sobre Nós</a></li>
-                    <li><a href="#">Trabalhe Conosco</a></li>
+                    
                     <li><a href="#">Termos de Uso</a></li>
                     <li><a href="#">Política de Privacidade</a></li>
                 </ul>
@@ -159,9 +162,8 @@ if (isset($_SESSION['user_id'])) {
             <div class="footer-section">
                 <h4>Redes Sociais</h4>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/autonowe_tcc/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvkXKnJPbXbxkqjTqfmBGxptkLbnlmFJSzJHNLGsWGwlSmZlNrmkznKxPwJNKNVSDKcbkg"><i class="fa fa-envelope" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
